@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.productcard {
+    border: 1px solid #dfe4ed;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: -ms-flex;
+    display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.productcard .product-name {
+    margin-bottom: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.productcard  .product-info {
+    padding-left: 15px;
+    width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.sku {
+    white-space: nowrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.shimmer:before {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+    background-size: 1000px 100%;
+    content: '';
+    display: block;
+}
+
+.product-image.shimmer:before {
+    height: 100px;
+    width: 100px;
+}
+
+.product-name.shimmer:before {
+    height: 25px;
+    width: 95%;
+}
+
+.sku.shimmer:before {
+    height: 15px;
+    width: 20%;
+}
+
+.page-title.shimmer:before {
+    height: 45px;
+    width: 70%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@media(max-width: 767px) {
+    .productcard img {
+        max-width: 70px;
+    }
+    .productcard .product-info {
+        padding-left: 15px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    .product-image.shimmer:before {
+        height: 70px;
+        width: 70px;
+    }
 }
